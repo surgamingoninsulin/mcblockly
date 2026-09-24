@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MCBlockly &mdash; Minecraft Datapack Editor</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header id="topbar">
+        <h1>MCBlockly</h1>
+        <span class="subtitle">Minecraft datapack &amp; resource pack block editor</span>
+        <div class="topbar-actions">
+          <button id="btn-save-project" title="Save the whole project as a .json file">Save Project</button>
+          <button id="btn-load-project" title="Load a project .json file">Load Project</button>
+          <input id="input-load-project" type="file" accept="application/json" hidden />
+          <button id="btn-export-datapack" class="primary" title="Export a ready-to-use datapack .zip">
+            Export Datapack
+          </button>
+          <button id="btn-export-resourcepack" title="Export a ready-to-use resource pack .zip">
+            Export Resource Pack
+          </button>
+        </div>
+      </header>
+
+      <div id="layout">
+        <aside id="sidebar">
+          <section class="panel">
+            <h2>Pack Settings</h2>
+            <label>Namespace
+              <input id="field-namespace" type="text" value="example" />
+            </label>
+            <label>Description
+              <input id="field-description" type="text" value="My datapack" />
+            </label>
+            <label>Datapack format
+              <input id="field-pack-format" type="number" min="1" value="48" />
+            </label>
+            <label>Resource pack format
+              <input id="field-resource-pack-format" type="number" min="1" value="34" />
+            </label>
+          </section>
+
+          <section class="panel">
+            <h2>Functions</h2>
+            <ul id="function-list"></ul>
+            <div class="row">
+              <input id="field-new-function" type="text" placeholder="new_function_name" />
+              <button id="btn-add-function">+ Add</button>
+            </div>
+            <div class="row function-controls">
+              <label class="checkbox"><input type="checkbox" id="field-fn-load" /> runs on load</label>
+              <label class="checkbox"><input type="checkbox" id="field-fn-tick" /> runs every tick</label>
+              <button id="btn-rename-function">Rename</button>
+              <button id="btn-delete-function" class="danger">Delete</button>
+            </div>
+          </section>
+
+          <section class="panel">
+            <h2>Resource Pack &mdash; Language</h2>
+            <p class="hint">Custom translation keys, written to assets/&lt;namespace&gt;/lang/en_us.json</p>
+            <table id="lang-table">
+              <thead><tr><th>Key</th><th>Value</th><th></th></tr></thead>
+              <tbody id="lang-table-body"></tbody>
+            </table>
+            <button id="btn-add-lang">+ Add entry</button>
+          </section>
+        </aside>
+
+        <main id="workspace-area">
+          <div id="blockly-div"></div>
+          <div id="preview-panel">
+            <div class="preview-header">
+              <span>Preview: <code id="preview-filename">main.mcfunction</code></span>
+            </div>
+            <pre id="preview-code"></pre>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
