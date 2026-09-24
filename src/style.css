@@ -1,0 +1,235 @@
+:root {
+  --bg: #1e1f22;
+  --panel: #2b2d31;
+  --panel-alt: #313338;
+  --border: #3f4147;
+  --text: #dbdee1;
+  --text-dim: #949ba4;
+  --accent: #5865f2;
+  --accent-hover: #4752c4;
+  --danger: #da373c;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #app {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+}
+
+#topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+#topbar h1 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.subtitle {
+  color: var(--text-dim);
+  font-size: 13px;
+  flex: 1;
+}
+
+.topbar-actions {
+  display: flex;
+  gap: 8px;
+}
+
+button {
+  background: var(--panel-alt);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+button:hover { background: #393c41; }
+button.primary { background: var(--accent); border-color: var(--accent); }
+button.primary:hover { background: var(--accent-hover); }
+button.danger { color: var(--danger); }
+
+#layout {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+#sidebar {
+  width: 320px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  background: var(--panel);
+  border-right: 1px solid var(--border);
+  padding: 12px;
+}
+
+.panel {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.panel h2 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+  margin: 0 0 10px;
+}
+
+.panel label {
+  display: block;
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+
+.panel input[type="text"],
+.panel input[type="number"] {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 13px;
+}
+
+.hint {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin: 0 0 8px;
+}
+
+#function-list {
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#function-list li {
+  padding: 6px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#function-list li:hover { background: var(--panel-alt); }
+#function-list li.active { background: var(--accent); color: white; }
+#function-list li .badges { font-size: 10px; opacity: 0.8; }
+
+.row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.row input[type="text"] { flex: 1; }
+
+.function-controls {
+  flex-wrap: wrap;
+}
+
+.checkbox {
+  display: flex !important;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  width: auto !important;
+}
+
+#lang-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+#lang-table th {
+  text-align: left;
+  color: var(--text-dim);
+  font-weight: normal;
+  padding: 2px 4px;
+}
+
+#lang-table td {
+  padding: 2px 4px;
+}
+
+#lang-table input {
+  width: 100%;
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 3px;
+  padding: 3px 5px;
+  font-size: 12px;
+}
+
+#workspace-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+#blockly-div {
+  flex: 1;
+  min-height: 0;
+}
+
+#preview-panel {
+  height: 180px;
+  flex-shrink: 0;
+  background: #101114;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+}
+
+.preview-header {
+  padding: 6px 12px;
+  font-size: 12px;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border);
+}
+
+.preview-header code {
+  color: #7ee787;
+}
+
+#preview-code {
+  flex: 1;
+  margin: 0;
+  padding: 10px 12px;
+  overflow: auto;
+  font-family: 'Cascadia Code', Consolas, monospace;
+  font-size: 13px;
+  color: #d1d5da;
+  white-space: pre-wrap;
+}
